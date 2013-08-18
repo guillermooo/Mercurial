@@ -89,12 +89,12 @@ press <kbd>Tab</kbd>.
 
 In some situations, you can perform quick actions.
 
-### Log
+### In Log Reports
 
-In a log report, select two commit numbers and press
-<kbd>Ctrl</kbd>+<kbd>Enter</kbd> to **diff the two revisions**.
+To **diff two revisions**, select two revision numbers and press
+<kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
 
-If you want to **update to a revision number**, select a commit number and
+To **update to a revision number**, select a revision number and
 press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>.
 
 
