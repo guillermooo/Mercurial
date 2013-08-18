@@ -22,15 +22,15 @@ These options can be set in **Preferences | Settings - User**.
 
 `packages.sublime_hg.hg_exe`
 
-By default, the executable name for Mercurial is ``hg``. If you need to
-use a different one, such as ``hg.bat``, change this option.
+By default, the executable name for Mercurial is `hg`. If you need to
+use a different one, such as `hg.bat`, change this option.
 
 Example:
 
 ```json
-   {
-      "packages.sublime_hg.hg_exe": "hg.bat"
-   }
+{
+  "packages.sublime_hg.hg_exe": "hg.bat"
+}
 ```
 
 `packages.sublime_hg.terminal`
@@ -62,14 +62,14 @@ By default, you have to follow these steps to use Mercurial:
 2. Select option
 3. Select Mercurial command (or type in command line)
 
-It is however **recommended to assign** ``show_sublime_hg_cli`` and
-``show_sublime_hg_menu`` their own **key bindings**.
+It is however **recommended to assign** `show_sublime_hg_cli` and
+`show_sublime_hg_menu` their own **key bindings**.
 
 For example:
 
 ```json
-	{ "keys": ["ctrl+k", "ctrl+k"], "command": "show_mercurial_menu" },
-	{ "keys": ["ctrl+shift+k"], "command": "show_mercurial_cli" },
+{ "keys": ["ctrl+k", "ctrl+k"], "command": "show_mercurial_menu" },
+{ "keys": ["ctrl+shift+k"], "command": "show_mercurial_cli" },
 ```
 
 ## Restarting the Current Server
@@ -78,6 +78,7 @@ The Mercurial command server will not detect changes to the repository made
 from the outside (perhaps from a command line) while it is running. To restart
 the current server so that external changes are picked up, select
 *Kill Current Server* from the command palette.
+
 
 ## Tab Completion
 
