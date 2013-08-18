@@ -1,2 +1,2 @@
-13.0.0
+13.0.0 - 18/08/2013 
 	- Sublime Text 3 support.
