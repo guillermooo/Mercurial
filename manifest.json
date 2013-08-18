@@ -1,0 +1,39 @@
+{
+	"name": "Mercurial",
+	"include": {
+		"dev": [
+			["*.*", ["*builder.py",
+					 "*toplist.py",
+					 "*.sublime-workspace",
+					 "*.sublime-project",
+					 "*.JSON-tmLanguage",
+					 "*.ps1",
+					 "*.hg*",
+					 "*manifest.json"]
+			],
+			["./shglib/*.py", []],
+
+			["./Support/*.*", []],
+
+			["./tests/*.py", []],
+			["./tests/shglib/*.py", []]
+
+		],
+		"release": [
+			["*.*", ["*builder.py",
+					 "*toplist.py",
+					 "*.sublime-workspace",
+					 "*.sublime-project",
+					 "*.JSON-tmLanguage",
+					 "*.ps1",
+					 "*.hg*",
+					 "*manifest.json"]
+			],
+			["./shglib/*.py", []],
+
+			["./Support/*.*", []],
+
+			["./tests/*.py", []]
+		]
+	}
+}

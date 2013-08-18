@@ -1,0 +1,13 @@
+global-include *.py *.txt
+global-include *.sublime-* *.hidden-tmLanguage
+
+exclude setup.py
+exclude *.sublime-project
+exclude *.sublime-workspace
+exclude _*.txt
+exclude *.cache
+
+graft Doc
+prune dist
+prune data
+prune tests
