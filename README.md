@@ -58,18 +58,19 @@ some operations might be quicker through the menu.
 
 By default, you have to follow these steps to use Mercurial:
 
-#. Open the Command Palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and look for `Mercurial`.
-#. Select option
-#. Select Mercurial command (or type in command line)
+1. Open the Command Palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and look for `Mercurial`.
+2. Select option
+3. Select Mercurial command (or type in command line)
 
 It is however **recommended to assign** ``show_sublime_hg_cli`` and
 ``show_sublime_hg_menu`` their own **key bindings**.
 
-For example::
+For example:
 
+```json
 	{ "keys": ["ctrl+k", "ctrl+k"], "command": "show_sublime_hg_menu" },
 	{ "keys": ["ctrl+shift+k"], "command": "show_sublime_hg_cli" },
-
+```
 
 ## Restarting the Current Server
 
