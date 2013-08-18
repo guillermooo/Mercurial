@@ -68,8 +68,8 @@ It is however **recommended to assign** ``show_sublime_hg_cli`` and
 For example:
 
 ```json
-	{ "keys": ["ctrl+k", "ctrl+k"], "command": "show_sublime_hg_menu" },
-	{ "keys": ["ctrl+shift+k"], "command": "show_sublime_hg_cli" },
+	{ "keys": ["ctrl+k", "ctrl+k"], "command": "show_mercurial_menu" },
+	{ "keys": ["ctrl+shift+k"], "command": "show_mercurial_cli" },
 ```
 
 ## Restarting the Current Server
@@ -82,7 +82,7 @@ the current server so that external changes are picked up, select
 ## Tab Completion
 
 While in the command-line, top level commands will be autocompleted when you
-press ``Tab``.
+press <kbd>Tab</kbd>.
 
 
 ## Quick Actions
@@ -91,10 +91,10 @@ In some situations, you can perform quick actions.
 
 ### Log
 
-In a log report (``text.mercurial-log``), select two commit numbers (``keyword.other.changeset-ref.short.mercurial-log``)
-and press *CTRL+ENTER* to **diff the two revisions** (``diff -rSMALLER_REV_NR:LARGER_REV_NR``).
+In a log report (`text.mercurial-log`), select two commit numbers (`keyword.other.changeset-ref.short.mercurial-log`)
+and press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to **diff the two revisions** (``diff -rSMALLER_REV_NR:LARGER_REV_NR``).
 
-If you want to **update to a revision number**, select a commit number and press *CTRL+SHIFT+ENTER* (``update REV_NR``).
+If you want to **update to a revision number**, select a commit number and press <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>ENTER</kbd> (`update REV_NR`).
 
 
 Donations
