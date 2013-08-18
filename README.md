@@ -49,8 +49,8 @@ commands.
 
 Mercurial can be used in two ways:
 
-- Through a *menu* (`show_sublime_hg_menu` command).
-- Through a *command-line* interface (`show_sublime_hg_cli` command).
+- Through a *menu* (`show_mercurial_menu` command).
+- Through a *command-line* interface (`show_mercurial_cli` command).
 
 Regardless of the method used, Mercurial ultimately talks to the Mercurial
 command server. The command-line interface is the more flexible option, but
