@@ -102,5 +102,5 @@ press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>.
 Donations
 =========
 
-You can tip me through www.gittip.com [guillermooo](http://www.gittip.com/guillermooo/) or Pledgie (see top).
+You can tip me through Gittip [guillermooo](http://www.gittip.com/guillermooo/) or Pledgie (see top).
 	
