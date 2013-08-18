@@ -1,4 +1,4 @@
-<a href='http://www.pledgie.com/campaigns/19374'><img alt='Click here to lend your support to: SublimeHg and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/19374.png?skin_name=chrome' border='0' /></a>
+<a href='http://www.pledgie.com/campaigns/19374'><img alt='Click here to lend your support to: Mercurial and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/19374.png?skin_name=chrome' border='0' /></a>
 
 # Mercurial (Sublime Text Package)
 
@@ -102,5 +102,5 @@ press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>.
 Donations
 =========
 
-You can tip me through Gittip [guillermooo](http://www.gittip.com/guillermooo/) or Pledgie (see top).
+You can tip me through Gittip ([guillermooo](http://www.gittip.com/guillermooo/)) or Pledgie (see top).
 	
