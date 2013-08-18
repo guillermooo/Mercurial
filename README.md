@@ -1,8 +1,8 @@
 <a href='http://www.pledgie.com/campaigns/19374'><img alt='Click here to lend your support to: SublimeHg and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/19374.png?skin_name=chrome' border='0' /></a>
 
-# SublimeHg
+# Mercurial (Sublime Text Package)
 
-Issue commands to Mercurial from Sublime Text.
+Use Mercurial from Sublime Text 3.
 
 
 ## Requirements
@@ -10,53 +10,55 @@ Issue commands to Mercurial from Sublime Text.
 * Mercurial command server (Mercurial 1.9 or above)
 
 
-## Getting Started
+## Installation
 
-<!-- [Download](https://bitbucket.org/guillermooo/sublimehg/downloads/SublimeHg.sublime-package) and install SublimeHg. (See the [installation instructions](http://docs.sublimetext.info/en/latest/extensibility/packages.html#installation-of-sublime-package-files) for *.sublime-package* files.) -->
+- [Download](https://bitbucket.org/guillermooo/mercurial/downloads/Mercurial.sublime-package)
+- Install to *Installed Packages*
 
-At the moment, there's no *.sublime-package* file available, so you'll have to clone this repository.
 
 ## Configuration
 
 These options can be set in **Preferences | Settings - User**.
 
-``packages.sublime_hg.hg_exe``
+`packages.sublime_hg.hg_exe`
 
-	By default, the executable name for Mercurial is ``hg``. If you need to
-	use a different one, such as ``hg.bat``, change this option.
+By default, the executable name for Mercurial is ``hg``. If you need to
+use a different one, such as ``hg.bat``, change this option.
 
-	Example::
+Example:
 
-	   {
-	      "packages.sublime_hg.hg_exe": "hg.bat"
-	   }
+```json
+   {
+      "packages.sublime_hg.hg_exe": "hg.bat"
+   }
+```
 
-``packages.sublime_hg.terminal``
+`packages.sublime_hg.terminal`
 
-	Determines the terminal emulator to be used in Linux. Some commands, such
-	as *serve*, need this information to work.
+Determines the terminal emulator to be used in Linux. Some commands, such
+as *serve*, need this information to work.
 
-``packages.sublime_hg.extensions``
+`packages.sublime_hg.extensions`
 
-	A list of Mercurial extension names. Commands belonging to these extensions
-	will show up in the SublimeHg quick panel along with built-in Mercurial
-	commands.
+A list of Mercurial extension names. Commands belonging to these extensions
+will show up in the Mercurial quick panel along with built-in Mercurial
+commands.
 
 
 ## How to Use
 
-SublimeHg can be used in two ways:
+Mercurial can be used in two ways:
 
-- Through a *menu* (``show_sublime_hg_menu`` command).
-- Through a *command-line* interface (``show_sublime_hg_cli`` command).
+- Through a *menu* (`show_sublime_hg_menu` command).
+- Through a *command-line* interface (`show_sublime_hg_cli` command).
 
-Regardless of the method used, SublimeHg ultimately talks to the Mercurial
+Regardless of the method used, Mercurial ultimately talks to the Mercurial
 command server. The command-line interface is the more flexible option, but
 some operations might be quicker through the menu.
 
-By default, you have to follow these steps to use SublimeHg:
+By default, you have to follow these steps to use Mercurial:
 
-#. Open the Command Palette (``Ctrl+Shift+P``) and look for ``SublimeHg``.
+#. Open the Command Palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and look for `Mercurial`.
 #. Select option
 #. Select Mercurial command (or type in command line)
 
