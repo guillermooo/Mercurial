@@ -91,10 +91,11 @@ In some situations, you can perform quick actions.
 
 ### Log
 
-In a log report (`text.mercurial-log`), select two commit numbers (`keyword.other.changeset-ref.short.mercurial-log`)
-and press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to **diff the two revisions** (``diff -rSMALLER_REV_NR:LARGER_REV_NR``).
+In a log report, select two commit numbers and press
+<kbd>Ctrl</kbd>+<kbd>Enter</kbd> to **diff the two revisions**.
 
-If you want to **update to a revision number**, select a commit number and press <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>ENTER</kbd> (`update REV_NR`).
+If you want to **update to a revision number**, select a commit number and
+press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>.
 
 
 Donations
