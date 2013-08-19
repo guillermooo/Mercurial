@@ -1,7 +1,7 @@
 import sublime
 import sublime_plugin
 
-from Mercurial.sublime_hg import run_hg_cmd
+from Mercurial.sublime_hg import hg
 from Mercurial.sublime_hg import running_servers
 
 
@@ -53,7 +53,7 @@ class SublimeHgUpdateToRevisionCommand(sublime_plugin.TextCommand):
         v = sublime.active_window().active_view()
         path = v.file_name()
 
-        text, exit_code = run_hg_cmd(running_servers[path], "status")
+        text, exit_code = hg(running_servers[path], "status")
         if text:
             msg = "SublimeHg: Don't update to a different revision with uncommited changes. Aborting."
             # todo: Use warnings module instead?

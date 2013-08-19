@@ -10,6 +10,7 @@ import logging
 
 from Mercurial.shglib import commands
 from Mercurial.shglib import utils
+from Mercurial.shglib.utils import status
 from Mercurial.shglib.commands import AmbiguousCommandError
 from Mercurial.shglib.commands import CommandNotFoundError
 from Mercurial.shglib.commands import find_cmd
@@ -19,27 +20,18 @@ from Mercurial.shglib.commands import RUN_IN_OWN_CONSOLE
 from Mercurial.shglib.parsing import CommandLexer
 
 
-VERSION = '12.8.12'
+# todo: use hg keywords
+VERSION = '13.0.0'
 
 
 CMD_LINE_SYNTAX = 'Packages/Mercurial/Support/SublimeHg Command Line.hidden-tmLanguage'
 
-###############################################################################
-# Globals
-#------------------------------------------------------------------------------
-# Holds the existing server so it doesn't have to be reloaded.
+
 running_servers = utils.HgServers()
-# Helps find the file where the cmdline should be restored.
 recent_file_name = None
-#==============================================================================
 
 
-def plugin_loaded():
-    # configure logging here
-    pass
-
-
-def run_hg_cmd(server, cmd_string):
+def hg(server, cmd_string):
     """Runs a Mercurial command through the given command server.
     """
     server.run_command(cmd_string)
@@ -58,41 +50,43 @@ class KillHgServerCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         try:
-            repo_root = utils.find_hg_root(self.view.file_name())
+            fn = self.view.file_name()
+            if not fn:
+                status("File does not exist. Aborting.")
+                return
+            repo = utils.find_repo_root(fn)
         # XXX: Will swallow the same error for the utils. call.
         except AttributeError:
-            msg = "SublimeHg: No server found for this file."
-            sublime.status_message(msg)
+            status("No server found for this file: {0}".format(fn))
             return
 
-        running_servers.shut_down(repo_root)
-        sublime.status_message("SublimeHg: Killed server for '%s'" %
-                               repo_root)
+        running_servers.shut_down(repo)
+        status("Killed server for '{0}'".format(repo))
 
 
 def run_in_console(hg_bin, cmd, encoding=None):
     if sublime.platform() == 'windows':
-        cmd_str = ("%s %s && pause" % (hg_bin, cmd))
-        subprocess.Popen(["cmd.exe", "/c", cmd_str,])
+        cmd_str = '{0} {1} && pause'.format(hg_bin, cmd)
+        subprocess.Popen(['cmd.exe', '/c', cmd_str,])
     elif sublime.platform() == 'linux':
-        # Apparently it isn't possible to retrieve the preferred
-        # terminal in a general way for different distros:
+        # Apparently it isn't possible to retrieve the preferred terminal in a general way for
+        # different distros:
         # http://unix.stackexchange.com/questions/32547/how-to-launch-an-application-with-default-terminal-emulator-on-ubuntu
         term = utils.get_preferred_terminal()
         if term:
-            cmd_str = "bash -c '%s %s;read'" % (hg_bin, cmd)
+            cmd_str = "bash -c '{0} {1};read'".format(hg_bin, cmd)
             subprocess.Popen([term, '-e', cmd_str])
         else:
             raise EnvironmentError("No terminal found."
                                    "You might want to add packages.sublime_hg.terminal "
                                    "to your settings.")
     elif sublime.platform() == 'osx':
-        cmd_str = "%s %s" % (hg_bin, cmd)
-        osa = "tell application \"Terminal\"\ndo script \"cd '%s' && %s\"\nactivate\nend tell" % (os.getcwd(), cmd_str)
-
+        cmd_str = "{0} {1}".format(hg_bin, cmd)
+        osa = "tell application \"Terminal\"\ndo script \"cd '{0}' && {1}\"\nactivate\nend tell".format(os.getcwd(), cmd_str)
         subprocess.Popen(["osascript", "-e", osa])
     else:
-        raise NotImplementedError("Cannot run consoles on your OS: %s. Not implemented." % sublime.platform())
+        raise NotImplementedError("Cannot run consoles on your OS: {0}. "
+                                  "Not implemented.".format(sublime.platform()))
 
 
 def escape(s, c, esc='\\\\'):
@@ -136,13 +130,13 @@ class CommandRunnerWorker(threading.Thread):
 
         # Run the requested command through the command server.
         try:
-            data, exit_code = run_hg_cmd(self.command_server, self.command)
+            data, exit_code = hg(self.command_server, self.command)
             sublime.set_timeout(functools.partial(self.show_output, data, exit_code), 0)
         except UnicodeDecodeError as e:
-            print ("SublimeHg: Can't handle command string characters.")
+            print ("Mercurial: Can't handle command string characters.")
             print (e)
         except Exception as e:
-            print ("SublimeHg: Error while trying to run the command server.")
+            print ("Mercurial: Error while trying to run the command server.")
             print ("*" * 80)
             print (e)
             print ("*" * 80)
@@ -158,14 +152,14 @@ class CommandRunnerWorker(threading.Thread):
         # Just give feedback if we're running commands from the command
         # palette and there's no data.
         else:
-            sublime.status_message("SublimeHg - No output.")
+            sublime.status_message("Mercurial - <No output.>")
 
     def create_output(self, data, exit_code):
         # Output to the console or to a separate buffer.
         if not self.append:
             p = self.window.new_file()
             p.run_command('append', {'characters': data})
-            p.set_name("SublimeHg - Output")
+            p.set_name("Mercurial - Output")
             p.set_scratch(True)
             p.settings().set('gutter', False)
             if self.command_data and self.command_data.syntax_file:
@@ -189,9 +183,9 @@ class HgCommandRunnerCommand(sublime_plugin.TextCommand):
         except CommandNotFoundError:
             # This will happen when we cannot find an unambiguous command or
             # any command at all.
-            sublime.status_message("SublimeHg: Command not found.")
+            sublime.status_message("Mercurial: Command not found.")
         except AmbiguousCommandError:
-            sublime.status_message("SublimeHg: Ambiguous command.")
+            sublime.status_message("Mercurial: Ambiguous command.")
 
     def on_done(self, s):
         # FIXME: won't work with short aliases like st, etc.
@@ -200,24 +194,24 @@ class HgCommandRunnerCommand(sublime_plugin.TextCommand):
         try:
             hgs = running_servers[self.cwd]
         except utils.NoRepositoryFoundError as e:
-            msg = "SublimeHg: %s" % e
+            msg = "Mercurial: %s" % e
             print (msg)
             sublime.status_message(msg)
             return
         except EnvironmentError as e:
-            msg = "SublimeHg: %s (Is the Mercurial binary on your PATH?)" % e
+            msg = "Mercurial: %s (Is the Mercurial binary on your PATH?)" % e
             print (msg)
             sublime.status_message(msg)
             return
         except Exception as e:
-            msg = ("SublimeHg: Cannot start server."
+            msg = ("Mercurial: Cannot start server."
                   "(Your Mercurial version might be too old.)")
             print (msg)
             sublime.status_message(msg)
             return
 
         if getattr(self, 'worker', None) and self.worker.is_alive():
-            sublime.status_message("SublimeHg: Processing another request. "
+            sublime.status_message("Mercurial: Processing another request. "
                                    "Try again later.")
             return
 

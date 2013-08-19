@@ -45,14 +45,14 @@ def get_preferred_terminal():
     return settings.get('packages.sublime_hg.terminal') or ''
 
 
-def find_hg_root(path):
+def find_repo_root(path):
     abs_path = os.path.join(path, '.hg')
     if os.path.exists(abs_path) and os.path.isdir(abs_path):
         return path
     elif os.path.dirname(path) == path:
         return None
     else:
-        return find_hg_root(os.path.dirname(path))
+        return find_repo_root(os.path.dirname(path))
 
 
 def is_flag_set(flags, which_one):
@@ -68,7 +68,7 @@ class HgServers(object):
         found, it creates one for the path.
         """
         v = sublime.active_window().active_view()
-        repo_root = find_hg_root(current_path or v.file_name())
+        repo_root = find_repo_root(current_path or v.file_name())
         if not repo_root:
             raise NoRepositoryFound()
         if not repo_root in self.__dict__:
@@ -88,3 +88,7 @@ class HgServers(object):
     def shut_down(self, repo_root):
         self[repo_root].shut_down()
         del self.__dict__[repo_root]
+
+
+def status(msg):
+   sublime.status_message("Mercurial: {0}".format(msg))

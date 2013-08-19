@@ -171,7 +171,6 @@ class _ptTestDataDispatcher(sublime_plugin.EventListener):
                     TestsState.view = view
 
                     _, suite_names = test_suites[TestsState.suite]
-                    print("XXX", suite_names)
                     suite = unittest.TestLoader().loadTestsFromNames(suite_names)
 
                     bucket = io.StringIO()
