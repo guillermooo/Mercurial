@@ -38,89 +38,16 @@ class TestsState(object):
 
 TESTS_CLIENT = 'Mercurial.tests.shglib.test_client'
 TESTS_PARSING = 'Mercurial.tests.shglib.test_parsing'
-# TESTS_REGISTERS = 'Vintageous.tests.vi.test_registers'
-# TESTS_MARKS = 'Vintageous.tests.vi.test_marks'
-# TESTS_STATE = 'Vintageous.tests.test_state'
-# TESTS_CONSTANTS = 'Vintageous.tests.vi.test_constants'
-# TESTS_CMD_DATA = 'Vintageous.tests.vi.test_cmd_data'
-# TESTS_KEYMAP = 'Vintageous.tests.test_keymap'
-# TESTS_RUN = 'Vintageous.tests.test_run'
-
-# TESTS_CMDS_SET_ACTION = 'Vintageous.tests.commands.test_set_action'
-# TESTS_CMDS_SET_MOTION = 'Vintageous.tests.commands.test_set_motion'
-# TESTS_CMDS_MOTION_VI_L = 'Vintageous.tests.commands.test__vi_l'
-# TESTS_CMDS_MOTION_VI_H = 'Vintageous.tests.commands.test__vi_h'
-# TESTS_CMDS_MOTION_VI_BIG_G = 'Vintageous.tests.commands.test__vi_big_g'
-# TESTS_CMDS_MOTION_VI_DOLLAR = 'Vintageous.tests.commands.test__vi_dollar'
-# TESTS_CMDS_MOTION_VI_J = 'Vintageous.tests.commands.test__vi_j'
-# TESTS_CMDS_MOTION_VI_K = 'Vintageous.tests.commands.test__vi_k'
-# TESTS_CMDS_MOTION_VI_BIG_F = 'Vintageous.tests.commands.test__vi_big_f'
-# TESTS_CMDS_ACTION_CTRL_X = 'Vintageous.tests.commands.test__ctrl_x_and__ctrl_a'
-# TESTS_CMDS_ACTION_VI_CC = 'Vintageous.tests.commands.test__vi_cc'
-# TESTS_CMDS_ACTION_VI_BIG_S = 'Vintageous.tests.commands.test__vi_big_s'
-
-# TESTS_EX_CMDS_COPY = 'Vintageous.tests.ex.test_copy'
-# TESTS_EX_CMDS_MOVE = 'Vintageous.tests.ex.test_move'
-# TESTS_EX_CMDS_DELETE = 'Vintageous.tests.ex.test_delete'
-
-# TESTS_UNITS_WORD = 'Vintageous.tests.vi.test_word'
-# TESTS_UNITS_BIG_WORD = 'Vintageous.tests.vi.test_big_word'
-# TESTS_UNITS_WORD_END = 'Vintageous.tests.vi.test_word_end'
+TESTS_LOG_SUPPORT = 'Mercurial.tests.shglib.test_log_support'
 
 TESTS_ALL_CLIENT = [TESTS_CLIENT]
 TESTS_ALL_PARSING = [TESTS_PARSING]
-# TESTS_CMDS_ALL_SUPPORT = [TESTS_CMDS_SET_ACTION, TESTS_CMDS_SET_MOTION]
-
-# TESTS_CMDS_ALL_ACTIONS = [TESTS_CMDS_ACTION_CTRL_X,
-#                           TESTS_CMDS_ACTION_VI_CC,
-#                           ]
-
-# TESTS_CMDS_ALL_MOTIONS = [TESTS_CMDS_MOTION_VI_L,
-#                           TESTS_CMDS_MOTION_VI_H,
-#                           TESTS_CMDS_MOTION_VI_BIG_G,
-#                           TESTS_CMDS_MOTION_VI_DOLLAR,
-#                           TESTS_CMDS_MOTION_VI_J,
-#                           TESTS_CMDS_MOTION_VI_K,
-#                           TESTS_CMDS_MOTION_VI_BIG_F,
-#                           TESTS_CMDS_ACTION_VI_BIG_S,
-#                           ]
-
-# TESTS_EX_CMDS = [
-#     TESTS_EX_CMDS_COPY,
-#     TESTS_EX_CMDS_MOVE,
-#     TESTS_EX_CMDS_DELETE,
-# ]
-
-# TESTS_UNITS_ALL = [TESTS_UNITS_WORD,
-#                    TESTS_UNITS_BIG_WORD,
-#                    TESTS_UNITS_WORD_END,
-#                   ]
-
-# TESTS_CMDS_ALL = TESTS_CMDS_ALL_MOTIONS + TESTS_CMDS_ALL_ACTIONS + TESTS_CMDS_ALL_SUPPORT
-
+TESTS_ALL_SUPPORT = [TESTS_LOG_SUPPORT]
 
 test_suites = {
         'client': ['_pt_run_tests', TESTS_ALL_CLIENT],
         'parsing': ['_pt_run_tests', TESTS_ALL_PARSING],
-
-#         'settings': ['_pt_run_tests', [TESTS_SETTINGS]],
-#         'registers': ['_pt_run_tests', [TESTS_REGISTERS]],
-#         'marks': ['_pt_run_tests', [TESTS_MARKS]],
-
-#         'state': ['_pt_run_tests', [TESTS_STATE]],
-#         'run': ['_pt_run_tests', [TESTS_RUN]],
-
-#         'constants': ['_pt_run_tests', [TESTS_CONSTANTS]],
-
-#         'cmd_data': ['_pt_run_tests', [TESTS_CMD_DATA]],
-
-#         'keymap': ['_pt_run_tests', [TESTS_KEYMAP]],
-
-#         'commands': ['_pt_run_tests', TESTS_CMDS_ALL],
-
-#         'units': ['_pt_run_tests', TESTS_UNITS_ALL],
-
-#         'ex_cmds': ['_pt_run_tests', TESTS_EX_CMDS],
+        'support': ['_pt_run_tests', TESTS_ALL_SUPPORT],
 }
 
 

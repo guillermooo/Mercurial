@@ -1,0 +1,3 @@
+class RevisionLogInfo(object):
+    pass
+
