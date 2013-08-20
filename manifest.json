@@ -22,6 +22,10 @@
 		"release": [
 			["*.*", ["*builder.py",
 					 "*toplist.py",
+					 "*test_harness.py",
+					 "*test_xharness.py",
+					 "*test_runner.py",
+					 "*test_runner.py",
 					 "*.sublime-workspace",
 					 "*.sublime-project",
 					 "*.JSON-tmLanguage",
