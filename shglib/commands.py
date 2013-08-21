@@ -422,6 +422,19 @@ HG_COMMANDS['default'] = {
                     help='start stand-alone webserver',
                     flags=RUN_IN_OWN_CONSOLE,
                     ),
+    "graph": cmd_data(
+                    invocations={
+                        "glog (5 revs)": "log -G -l5",
+                        "glog (10 revs)": "log -G -l10",
+                        "glog (15 revs)": "log -G -l15",
+                        "glog (30 revs)": "log -G -l30",
+                    },
+                    prompt='',
+                    enabled=True,
+                    syntax_file='',
+                    help='start stand-alone webserver',
+                    flags=RUN_IN_OWN_CONSOLE,
+                    ),
     "init": cmd_data(
                     invocations={
                         "init (this file's directory)": "init"
