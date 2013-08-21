@@ -175,6 +175,7 @@ class CommandRunnerWorker(threading.Thread):
 
 class HgCommandRunnerCommand(sublime_plugin.TextCommand):
     def run(self, edit, cmd=None, display_name=None, cwd=None, append=False):
+        print("BB BBB BBB BB", self.view.file_name())
         self.display_name = display_name
         self.cwd = cwd
         self.append = append
@@ -215,6 +216,7 @@ class HgCommandRunnerCommand(sublime_plugin.TextCommand):
                                    "Try again later.")
             return
 
+        print("AAAAAAA", self.view.size(), self.view.file_name())
         self.worker = CommandRunnerWorker(
                                           command_server=hgs,
                                           command=s,
@@ -262,13 +264,13 @@ class ShowMercurialMenuCommand(sublime_plugin.WindowCommand):
                 return
 
             # Command requires additional info, but it's provided automatically.
-            self.window.run_command('hg_command_runner', {
+            self.window.active_view().run_command('hg_command_runner', {
                                               'cmd': format_str % env,
                                               'display_name': hg_cmd})
         else:
             # It's a simple command that doesn't require any input, so just
             # go ahead and run it.
-            self.window.run_command('hg_command_runner', {
+            self.window.active_view().run_command('hg_command_runner', {
                                               'cmd': hg_cmd,
                                               'display_name': hg_cmd})
 

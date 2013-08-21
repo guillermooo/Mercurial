@@ -432,8 +432,8 @@ HG_COMMANDS['default'] = {
                     prompt='',
                     enabled=True,
                     syntax_file='',
-                    help='start stand-alone webserver',
-                    flags=RUN_IN_OWN_CONSOLE,
+                    help='print log and show graph',
+                    flags=0,
                     ),
     "init": cmd_data(
                     invocations={

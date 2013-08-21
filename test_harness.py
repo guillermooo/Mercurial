@@ -1,4 +1,4 @@
-from Mercurial.test_runner import _pt_show_suites
+from AAAPT.runner import register_tests
 
 
 TESTS_CLIENT = 'Mercurial.tests.shglib.test_client'
@@ -10,9 +10,9 @@ TESTS_ALL_PARSING = [TESTS_PARSING]
 TESTS_ALL_SUPPORT = [TESTS_LOG_SUPPORT]
 
 test_suites = {
-        'client': ['_pt_run_tests', TESTS_ALL_CLIENT],
-        'parsing': ['_pt_run_tests', TESTS_ALL_PARSING],
-        'support': ['_pt_run_tests', TESTS_ALL_SUPPORT],
+        'client': TESTS_ALL_CLIENT,
+        'parsing': TESTS_ALL_PARSING,
+        'support': TESTS_ALL_SUPPORT,
 }
 
-_pt_show_suites.register(test_suites)
+register_tests(test_suites)

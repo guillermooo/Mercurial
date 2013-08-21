@@ -1,4 +1,4 @@
-from Mercurial.test_runner import TestsState
+from AAAPT.runner import TestsState
 from Mercurial.shglib import parsing
 
 import unittest
@@ -29,6 +29,12 @@ class Test_CommandLexer(unittest.TestCase):
         l = parsing.CommandLexer('status -n')
         self.assertEqual(list(l), ['status', '-n'])
 
+    def testCanLexMultipleShortSimpleOption(self):
+        l = parsing.CommandLexer('status -n -x')
+        self.assertEqual(list(l), ['status', '-n', '-x'])
+        l = parsing.CommandLexer('status -n -G')
+        self.assertEqual(list(l), ['status', '-n', '-G'])
+
     def testCanLexLongSimpleOption(self):
         l = parsing.CommandLexer('status --no-status')
         self.assertEqual(list(l), ['status', '--no-status'])
@@ -38,6 +44,10 @@ class Test_CommandLexer(unittest.TestCase):
         self.assertEqual(list(l), ['diff', '-r', '100'])
         l = parsing.CommandLexer('diff -r100')
         self.assertEqual(list(l), ['diff', '-r', '100'])
+
+    def testCanLexMultipleMixedOptions(self):
+        l = parsing.CommandLexer('log -r10 -G')
+        self.assertEqual(list(l), ['log', '-r', '10', '-G'])
 
     def testCanLexShortStringArg(self):
         l = parsing.CommandLexer('commit -m "foo"')

@@ -1,4 +1,4 @@
-from Mercurial.test_runner import TestsState
+from AAAPT.runner import TestsState
 from Mercurial.shglib.log_support import RevisionLogInfo
 
 import unittest
