@@ -21,6 +21,7 @@
 		],
 		"release": [
 			["*.*", ["*builder.py",
+					 "*build.sh",
 					 "*toplist.py",
 					 "*test_harness.py",
 					 "*test_xharness.py",
