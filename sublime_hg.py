@@ -31,6 +31,10 @@ running_servers = utils.HgServers()
 recent_file_name = None
 
 
+def plugin_loaded():
+    logging.basicConfig(level=logging.ERROR)
+
+
 def hg(server, cmd_string):
     """Runs a Mercurial command through the given command server.
     """

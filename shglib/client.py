@@ -140,5 +140,5 @@ class CmdServerClient(object):
                 return
             else:
                 self.shut_down()
-                logging.error("Didn't expect such channel.")
+                logging.error("Didn't expect such channel: " + channel)
                 return
