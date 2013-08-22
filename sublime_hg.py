@@ -175,7 +175,6 @@ class CommandRunnerWorker(threading.Thread):
 
 class HgCommandRunnerCommand(sublime_plugin.TextCommand):
     def run(self, edit, cmd=None, display_name=None, cwd=None, append=False):
-        print("BB BBB BBB BB", self.view.file_name())
         self.display_name = display_name
         self.cwd = cwd
         self.append = append
@@ -216,7 +215,6 @@ class HgCommandRunnerCommand(sublime_plugin.TextCommand):
                                    "Try again later.")
             return
 
-        print("AAAAAAA", self.view.size(), self.view.file_name())
         self.worker = CommandRunnerWorker(
                                           command_server=hgs,
                                           command=s,

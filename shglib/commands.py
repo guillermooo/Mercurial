@@ -424,10 +424,10 @@ HG_COMMANDS['default'] = {
                     ),
     "graph": cmd_data(
                     invocations={
-                        "glog (5 revs)": "log -G -l5",
-                        "glog (10 revs)": "log -G -l10",
-                        "glog (15 revs)": "log -G -l15",
-                        "glog (30 revs)": "log -G -l30",
+                        "glog (5 revs)": "log --graph -l5",
+                        "glog (10 revs)": "log --graph -l10",
+                        "glog (15 revs)": "log --graph -l15",
+                        "glog (30 revs)": "log --graph -l30",
                     },
                     prompt='',
                     enabled=True,
