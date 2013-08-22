@@ -128,10 +128,14 @@ HG_COMMANDS['default'] = {
                     ),
     'grep': cmd_data(
                     invocations={
-                        'grep (tip)...': 'grep "%(input)s" -ur tip',
-                        'grep (latest 5)...': 'grep "%(input)s" -ur "-5:tip"',
-                        'grep (latest 10)...': 'grep "%(input)s" -ur "-10:tip"',
-                        'grep (all)...': 'grep "%(input)s" -u',
+                        'grep (tip)...': 'grep "%(input)s" -nur tip',
+                        'grep (tip)... [case insensitive]': 'grep "%(input)s" --ignore-case -nur tip',
+                        'grep (latest 5)...': 'grep "%(input)s" -nur "-5:tip"',
+                        'grep (latest 5)... [case insensitive]': 'grep "%(input)s" --ignore-case -nur "-5:tip"',
+                        'grep (latest 10)...': 'grep "%(input)s" -nur "-10:tip"',
+                        'grep (latest 10)... [case insensitive]': 'grep "%(input)s" --ignore-case -nur "-10:tip"',
+                        'grep (all)...': 'grep "%(input)s" -nu',
+                        'grep (all)... [case insensitive]': 'grep "%(input)s" --ignore-case -nu',
                     },
                     prompt='Pattern (grep):',
                     enabled=True,

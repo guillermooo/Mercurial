@@ -133,6 +133,7 @@ class CmdServerClient(object):
                 logging.debug(data)
             elif channel == CH_ERROR:
                 lines.append(data.decode(self.encoding))
+                logging.error("Mercurial server error. Data follows.")
                 logging.error(data)
             elif channel in (CH_INPUT, CH_LINE_INPUT):
                 logging.error("More data requested, can't satisfy.")
