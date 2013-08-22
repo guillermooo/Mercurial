@@ -29,6 +29,11 @@ class CommandLexer(Lexer):
     def __init__(self, in_unicode):
         Lexer.__init__(self, in_unicode)
 
+    def look_ahead(self, s):
+        if self.index + len(s) >= len(self.input):
+            return False
+        return self.input[self.index:(self.index + len(s))] == s
+
     def _WHITE_SPACE(self):
         while self.c in self._white_space:
             self.consume()
@@ -48,6 +53,18 @@ class CommandLexer(Lexer):
         if self.c == EOF:
             SyntaxError("expected option name, got nothing")
         opt_buf.append(self._NAME())
+        return ''.join(opt_buf)
+
+    def _LONG_OPTION(self):
+        opt_buf = []
+        while self.c != EOF and self.c == '-':
+            opt_buf.append(self.c)
+            self.consume()
+        if self.c == EOF:
+            SyntaxError("expected option name, got nothing")
+        while self.c != EOF and (self.c.isalpha() or self.c == '-'):
+            opt_buf.append(self.c)
+            self.consume()
         return ''.join(opt_buf)
 
     def _VALUE(self):
@@ -90,6 +107,8 @@ class CommandLexer(Lexer):
         while self.c != EOF:
             if self.c in self._white_space:
                 self._WHITE_SPACE()
+            elif self.look_ahead('--'):
+                yield self._LONG_OPTION()
             elif self.c == '-':
                 yield self._OPTION()
             elif self.c in '\'"':
