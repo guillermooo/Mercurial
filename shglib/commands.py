@@ -208,8 +208,11 @@ HG_COMMANDS['default'] = {
                     flags=0,
                     ),
     'manifest': cmd_data(
-                    invocations={},
-                    prompt='',
+                    invocations={
+                        'manifest...': 'manifest --rev %(input)s',
+                        'manifest': 'manifest',
+                    },
+                    prompt='Revision:',
                     enabled=True,
                     syntax_file='',
                     help='output the current or given revision of the project manifest',
