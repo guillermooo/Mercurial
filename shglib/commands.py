@@ -143,6 +143,17 @@ HG_COMMANDS['default'] = {
                     help='search for a pattern in specified files and revisions',
                     flags=0,
                     ),
+    'identify': cmd_data(
+                    invocations={
+                        'identify...': 'identify --num --id --branch --tags --bookmarks --rev %(input)s',
+                        'identify': 'identify --num --id --branch --tags --bookmarks',
+                    },
+                    prompt='Revision:',
+                    enabled=True,
+                    syntax_file='',
+                    help='identify the working copy or specified revision',
+                    flags=0,
+                    ),
     'heads': cmd_data(
                     invocations={},
                     prompt='',
@@ -160,16 +171,6 @@ HG_COMMANDS['default'] = {
                     enabled=True,
                     syntax_file='',
                     help='show help for a given topic or a help overview',
-                    flags=0,
-                    ),
-    'identify': cmd_data(
-                    invocations={
-                        'identify': 'identify -nibtB'
-                    },
-                    prompt='',
-                    enabled=True,
-                    syntax_file='',
-                    help='identify the working copy or specified revision',
                     flags=0,
                     ),
     'incoming': cmd_data(
