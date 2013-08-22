@@ -191,8 +191,10 @@ HG_COMMANDS['default'] = {
                     ),
     'log': cmd_data(
                     invocations={
-                        'log (this file)': 'log "%(file_name)s"',
-                        'log': 'log',
+                        'log (this file)': 'log --limit 30 --graph "%(file_name)s"',
+                        "log (10 revs)": "log --graph --limit 10",
+                        "log + (20 revs)": "log --graph --limit 20",
+                        "log ++ (30 revs)": "log --graph --limit 30",
                     },
                     prompt='',
                     enabled=True,
@@ -421,19 +423,6 @@ HG_COMMANDS['default'] = {
                     syntax_file='',
                     help='start stand-alone webserver',
                     flags=RUN_IN_OWN_CONSOLE,
-                    ),
-    "graph": cmd_data(
-                    invocations={
-                        "glog (5 revs)": "log --graph -l5",
-                        "glog (10 revs)": "log --graph -l10",
-                        "glog (15 revs)": "log --graph -l15",
-                        "glog (30 revs)": "log --graph -l30",
-                    },
-                    prompt='',
-                    enabled=True,
-                    syntax_file='',
-                    help='print log and show graph',
-                    flags=0,
                     ),
     "init": cmd_data(
                     invocations={
