@@ -1,0 +1,18 @@
+{ "name": "Mercurial Grep Report",
+	"scopeName": "text.mercurial-grep-report", 
+	"patterns": [
+		{  "match": "^(.+?)(:)(\\d+)(:)(\\d+)(:)(.+?)(:)(.*)$",
+			 "captures": {
+					"1": { "name": "comment.line.mercurial-grep-report" },
+					"2": { "name": "comment.line.mercurial-grep-report" },
+					"3": { "name": "constant.numeric.rev.short.mercurial-grep-report" },
+					"4": { "name": "comment.line.mercurial-grep-report" },
+					"5": { "name": "support.function.line.mercurial-grep-report" },
+					"6": { "name": "comment.line.mercurial-grep-report" },
+					"7": { "name": "keyword.username.mercurial-grep-report" },
+					"8": { "name": "comment.line.mercurial-grep-report" },
+					"9": { "name": "string.file-name.mercurial-grep-report" }
+			  }
+		}
+	]
+}

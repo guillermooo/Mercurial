@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Mercurial Grep Report</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>comment.line.mercurial-grep-report</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>comment.line.mercurial-grep-report</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.rev.short.mercurial-grep-report</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>comment.line.mercurial-grep-report</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.line.mercurial-grep-report</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>comment.line.mercurial-grep-report</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.username.mercurial-grep-report</string>
+				</dict>
+				<key>8</key>
+				<dict>
+					<key>name</key>
+					<string>comment.line.mercurial-grep-report</string>
+				</dict>
+				<key>9</key>
+				<dict>
+					<key>name</key>
+					<string>string.file-name.mercurial-grep-report</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(.+?)(:)(\d+)(:)(\d+)(:)(.+?)(:)(.*)$</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.mercurial-grep-report</string>
+</dict>
+</plist>

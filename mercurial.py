@@ -170,6 +170,7 @@ class CommandRunnerWorker(threading.Thread):
                 out = self.window.create_output_panel('hg_out')
                 out.settings().set("line_numbers", False)
                 out.settings().set("gutter", False)
+                out.settings().set("rulers", [])
                 out.settings().set("scroll_past_end", False)
                 out = self.window.create_output_panel('hg_out')
                 out.run_command('append', {'characters': data, 'force': True,})

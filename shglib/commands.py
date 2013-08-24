@@ -150,7 +150,7 @@ HG_COMMANDS['default'] = {
                     },
                     prompt='Pattern (grep):',
                     enabled=True,
-                    syntax_file='',
+                    syntax_file='Packages/Mercurial/Support/Mercurial Grep Report.hidden-tmLanguage',
                     help='search for a pattern in specified files and revisions',
                     flags=0,
                     preferred_output='panel',
