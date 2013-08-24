@@ -1,0 +1,13 @@
+{ "name": "Mercurial Qseries Output",
+  "scopeName": "text.mercurial-qseries-report", 
+  "patterns": [
+  	{  "match": "^(\\d+)?\\s*([AM!?])?\\s*(.+?):\\s*(.*)$",
+  	   "captures": {
+  	       "1": { "name": "constant.numeric.rev.short.mercurial-qseries-report" },
+  	       "2": { "name": "support.function.status.mercurial-qseries-report" },
+  	       "3": { "name": "variable.parameter.function.patch-name.mercurial-qseries-report" },
+  	       "4": { "name": "string.file-name.mercurial-qseries-report" }
+  	   }
+  	}
+  ]
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Mercurial Qseries Output</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.rev.short.mercurial-qseries-report</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.status.mercurial-qseries-report</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.patch-name.mercurial-qseries-report</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>string.file-name.mercurial-qseries-report</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(\d+)?\s*([AM!?])?\s*(.+?):\s*(.*)$</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.mercurial-qseries-report</string>
+</dict>
+</plist>

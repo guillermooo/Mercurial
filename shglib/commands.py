@@ -51,7 +51,7 @@ HG_COMMANDS['default'] = {
                     syntax_file='',
                     help='add the specified files on the next commit',
                     flags=0,
-                    preferred_output='view',
+                    preferred_output='panel',
                     ),
     'addremove': cmd_data(
                     invocations={},
@@ -60,7 +60,7 @@ HG_COMMANDS['default'] = {
                     syntax_file='',
                     help='add all new files, delete all missing files',
                     flags=0,
-                    preferred_output='view',
+                    preferred_output='panel',
                     ),
     'annotate': cmd_data(
                     invocations={
@@ -72,7 +72,7 @@ HG_COMMANDS['default'] = {
                     syntax_file='Packages/Mercurial/Support/Mercurial Annotate.hidden-tmLanguage',
                     help='show changeset information by line for each file',
                     flags=0,
-                    preferred_output='view',
+                    preferred_output='panel',
                     ),
     'bookmark': cmd_data(
                     invocations={
@@ -153,7 +153,7 @@ HG_COMMANDS['default'] = {
                     syntax_file='',
                     help='search for a pattern in specified files and revisions',
                     flags=0,
-                    preferred_output='view',
+                    preferred_output='panel',
                     ),
     'identify': cmd_data(
                     invocations={
@@ -512,7 +512,7 @@ HG_COMMANDS['mq'] = {
                         syntax_file='Packages/Diff/Diff.tmLanguage',
                         help='diff of the current patch and subsequent modifications',
                         flags=0,
-                        preferred_output='view',
+                        preferred_output='panel',
                         ),
         "qgoto": cmd_data(
                         invocations={
@@ -543,7 +543,7 @@ HG_COMMANDS['mq'] = {
                         },
                         prompt='',
                         enabled=True,
-                        syntax_file='',
+                        syntax_file='Packages/Mercurial/Support/Mercurial Qseries Output.hidden-tmLanguage',
                         help='print the name of the next pushable patch',
                         flags=0,
                         preferred_output='panel',
@@ -552,7 +552,7 @@ HG_COMMANDS['mq'] = {
                         invocations={},
                         prompt='',
                         enabled=True,
-                        syntax_file='',
+                        syntax_file='Packages/Mercurial/Support/Mercurial Qseries Output.hidden-tmLanguage',
                         help='pop the current patch off the stack',
                         flags=0,
                         preferred_output='panel',
@@ -563,7 +563,7 @@ HG_COMMANDS['mq'] = {
                         },
                         prompt='',
                         enabled=True,
-                        syntax_file='',
+                        syntax_file='Packages/Mercurial/Support/Mercurial Qseries Output.hidden-tmLanguage',
                         help='print the name of the preceding applied patch',
                         flags=0,
                         preferred_output='panel',
@@ -607,7 +607,7 @@ HG_COMMANDS['mq'] = {
                         },
                         prompt='',
                         enabled=True,
-                        syntax_file='',
+                        syntax_file='Packages/Mercurial/Support/Mercurial Qseries Output.hidden-tmLanguage',
                         help='print the entire series file',
                         flags=0,
                         preferred_output='panel',
@@ -651,7 +651,7 @@ HG_COMMANDS['mq'] = {
                         },
                         prompt='',
                         enabled=True,
-                        syntax_file='',
+                        syntax_file='Packages/Mercurial/Support/Mercurial Qseries Output.hidden-tmLanguage',
                         help='print the name of the current patch',
                         flags=0,
                         preferred_output='panel',
@@ -660,7 +660,7 @@ HG_COMMANDS['mq'] = {
                         invocations={},
                         prompt='',
                         enabled=True,
-                        syntax_file='',
+                        syntax_file='Packages/Mercurial/Support/Mercurial Qseries Output.hidden-tmLanguage',
                         help='print the patches not yet applied',
                         flags=0,
                         preferred_output='panel',
