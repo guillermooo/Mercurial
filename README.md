@@ -20,7 +20,7 @@ Use Mercurial from Sublime Text 3.
 
 These options can be set in **Preferences | Settings - User**.
 
-`packages.sublime_hg.hg_exe`
+`packages.mercurial.hg_exe`
 
 By default, the executable name for Mercurial is `hg`. If you need to
 use a different one, such as `hg.bat`, change this option.
@@ -29,16 +29,16 @@ Example:
 
 ```json
 {
-  "packages.sublime_hg.hg_exe": "hg.bat"
+  "packages.mercurial.hg_exe": "hg.bat"
 }
 ```
 
-`packages.sublime_hg.terminal`
+`packages.mercurial.terminal`
 
 Determines the terminal emulator to be used in Linux. Some commands, such
 as *serve*, need this information to work.
 
-`packages.sublime_hg.extensions`
+`packages.mercurial.extensions`
 
 A list of Mercurial extension names. Commands belonging to these extensions
 will show up in the Mercurial quick panel along with built-in Mercurial
@@ -62,8 +62,8 @@ By default, you have to follow these steps to use Mercurial:
 2. Select option
 3. Select Mercurial command (or type in command line)
 
-It is however **recommended to assign** `show_sublime_hg_cli` and
-`show_sublime_hg_menu` their own **key bindings**.
+It is however **recommended to assign** `show_mercurial_cli` and
+`show_mercurial_menu` their own **key bindings**.
 
 For example:
 

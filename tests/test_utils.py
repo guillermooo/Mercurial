@@ -7,10 +7,6 @@ from shglib import utils
 
 
 class TestHelpers(unittest.TestCase):
-    def sartUp(self):
-        # ss = test_runner.test_view.settings.get('packages.sublime_hg.hg_exe')
-        pass
-
     def testPushd(self):
         cwd = os.getcwd()
         target = os.environ["TEMP"]

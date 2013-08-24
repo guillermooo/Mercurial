@@ -35,14 +35,14 @@ def get_hg_exe_name():
     if view:
         # Retrieving the view's settings guarantees that settings
         # defined in projects, etc. work as expected.
-        return view.settings().get('packages.sublime_hg.hg_exe') or 'hg'
+        return view.settings().get('packages.mercurial.hg_exe') or 'hg'
     else:
         return 'hg'
 
 
 def get_preferred_terminal():
     settings = sublime.load_settings('Global.sublime-settings')
-    return settings.get('packages.sublime_hg.terminal') or ''
+    return settings.get('packages.mercurial.terminal') or ''
 
 
 def find_repo_root(path):

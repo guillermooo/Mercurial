@@ -82,7 +82,7 @@ def run_in_console(hg_bin, cmd, encoding=None):
             subprocess.Popen([term, '-e', cmd_str])
         else:
             raise EnvironmentError("No terminal found."
-                                   "You might want to add packages.sublime_hg.terminal "
+                                   "You might want to add packages.mercurial.terminal "
                                    "to your settings.")
     elif sublime.platform() == 'osx':
         cmd_str = "{0} {1}".format(hg_bin, cmd)
@@ -111,7 +111,7 @@ class CommandRunnerWorker(threading.Thread):
         self.view = view
         self.window = window
         self.fname = fname
-        extensions = view.settings().get('packages.sublime_hg.extensions', [])
+        extensions = view.settings().get('packages.mercurial.extensions', [])
         self.command_data = find_cmd(extensions, display_name)[1]
         self.append = append
 
@@ -235,7 +235,7 @@ class ShowMercurialMenuCommand(sublime_plugin.WindowCommand):
 
     def run(self):
         if not self.HG_CMDS:
-            extensions = self.get_view().settings().get('packages.sublime_hg.extensions', [])
+            extensions = self.get_view().settings().get('packages.mercurial.extensions', [])
             ShowMercurialMenuCommand.HG_CMDS = get_commands_by_ext(extensions)
 
         items = ShowMercurialMenuCommand.HG_CMDS
@@ -249,7 +249,7 @@ class ShowMercurialMenuCommand(sublime_plugin.WindowCommand):
             return
 
         hg_cmd = self.HG_CMDS[s][0]
-        extensions = self.get_view().settings().get('packages.sublime_hg.extensions', [])
+        extensions = self.get_view().settings().get('packages.mercurial.extensions', [])
         format_str, cmd_data = find_cmd(extensions, hg_cmd)
 
         fn = self.get_view().file_name()
@@ -308,7 +308,7 @@ class HgCompletionsProvider(sublime_plugin.EventListener):
     COMPLETIONS = []
 
     def load_completions(self, view):
-        extensions = view.settings().get('packages.sublime_hg.extensions', [])
+        extensions = view.settings().get('packages.mercurial.extensions', [])
         extensions.insert(0, 'default')
         self.COMPLETIONS = []
         for ext in extensions:
