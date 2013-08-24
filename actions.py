@@ -1,8 +1,8 @@
 import sublime
 import sublime_plugin
 
-from Mercurial.sublime_hg import hg
-from Mercurial.sublime_hg import running_servers
+from Mercurial.mercurial import hg
+from Mercurial.mercurial import running_servers
 
 
 class SublimeHgDiffSelectedCommand(sublime_plugin.TextCommand):
