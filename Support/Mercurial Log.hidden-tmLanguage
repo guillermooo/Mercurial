@@ -26,7 +26,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(changeset):\s+(\d+):([0-9a-z]+)$</string>
+			<string>^(?:[@|o])?\s*(changeset):\s+(\d+):([0-9a-z]+)$</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -58,7 +58,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(user):\s+(.+?) (&lt;)(.+)(&gt;)$</string>
+			<string>^(?:[@|o])?\s*(user):\s+(.+?) (&lt;)(.+)(&gt;)$</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -75,7 +75,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(\w+):\s+(.+)$</string>
+			<string>^(?:[@|o])?\s*(\w+):\s+(.+)$</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

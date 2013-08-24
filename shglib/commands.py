@@ -218,7 +218,7 @@ HG_COMMANDS['default'] = {
                         "log + (20 revs)": "log --graph --limit 20",
                         "log ++ (30 revs)": "log --graph --limit 30",
                         'log (this file) [stat]': 'log --limit 15 --graph --stat"%(file_name)s"',
-                        'log [stat]': 'log --limit 15 --graph --stat"%(file_name)s"',
+                        'log (20 revs) [stat]': 'log --limit 20 --graph --stat"%(file_name)s"',
                     },
                     prompt='',
                     enabled=True,

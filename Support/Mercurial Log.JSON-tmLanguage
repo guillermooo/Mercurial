@@ -2,7 +2,7 @@
   "scopeName": "text.mercurial-log", 
   "patterns": [
 
-    {  "match": "^(changeset):\\s+(\\d+):([0-9a-z]+)$",
+    {  "match": "^(?:[@|o])?\\s*(changeset):\\s+(\\d+):([0-9a-z]+)$",
        "captures": {
            "1": { "name": "support.function.mercurial-log" },
            "2": { "name": "keyword.other.changeset-ref.short.mercurial-log" },
@@ -10,7 +10,7 @@
        }
     },
 
-    {  "match": "^(user):\\s+(.+?) (<)(.+)(>)$",
+    {  "match": "^(?:[@|o])?\\s*(user):\\s+(.+?) (<)(.+)(>)$",
        "captures": {
            "1": { "name": "support.function.mercurial-log" },
            "2": { "name": "string.user.name.mercurial-log" },
@@ -20,7 +20,7 @@
        }
     },
 
-  	{  "match": "^(\\w+):\\s+(.+)$",
+  	{  "match": "^(?:[@|o])?\\s*(\\w+):\\s+(.+)$",
   	   "captures": {
   	       "1": { "name": "support.function.mercurial-log" },
   	       "2": { "name": "string.info.mercurial-log" }
