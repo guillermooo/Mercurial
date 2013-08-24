@@ -43,7 +43,7 @@ def hg(server, cmd_string):
     return text, exit_code
 
 
-class KillHgServerCommand(sublime_plugin.TextCommand):
+class KillMercurialServerCommand(sublime_plugin.TextCommand):
     """Shut down the server for the current file if it's running.
 
     The Mercurial command server does not detect state changes in the

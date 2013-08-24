@@ -11,7 +11,7 @@ current_path = None # Dirname of latest active view (other than the console).
 existing_console = None # View object (SublimeHg console).
 
 
-class ShowSublimeHgCli(sublime_plugin.TextCommand):
+class ShowMercurialCli(sublime_plugin.TextCommand):
     """
     Opens and initialises the SublimeHg cli.
     """
