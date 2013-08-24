@@ -7,6 +7,7 @@ import subprocess
 import os
 import re
 import logging
+from collections import Counter
 
 from Mercurial.shglib import commands
 from Mercurial.shglib import utils
@@ -104,7 +105,7 @@ class CommandRunnerWorker(threading.Thread):
     """Runs the Mercurial command and reports the output.
     """
     def __init__(self, command_server, command, view, window,
-                 fname, display_name, append=False):
+                 fname, display_name, append=False,):
         threading.Thread.__init__(self)
         self.command_server = command_server
         self.command = command
@@ -116,7 +117,6 @@ class CommandRunnerWorker(threading.Thread):
         self.append = append
 
     def run(self):
-        # The requested command interacts with remote repository or is potentially
         # long-running. We run it in its own console so it can be killed easily
         # by the user. Also, they have a chance to enter credentials if necessary.
         if utils.is_flag_set(self.command_data.flags, RUN_IN_OWN_CONSOLE):
@@ -158,9 +158,25 @@ class CommandRunnerWorker(threading.Thread):
         else:
             sublime.status_message("Mercurial - <No output.>")
 
+    def is_small_data(self, data):
+        c = Counter(data)
+        if c['\n'] < 15:
+            return True
+
     def create_output(self, data, exit_code):
         # Output to the console or to a separate buffer.
-        if not self.append:
+        if ((self.command_data.preferred_output == 'panel') and
+             self.is_small_data(data)):
+                out = self.window.create_output_panel('hg_out')
+                out.settings().set("line_numbers", False)
+                out.settings().set("gutter", False)
+                out.settings().set("scroll_past_end", False)
+                out = self.window.create_output_panel('hg_out')
+                out.run_command('append', {'characters': data, 'force': True,})
+                if self.command_data and self.command_data.syntax_file:
+                    out.set_syntax_file(self.command_data.syntax_file)
+                self.window.run_command("show_panel", {"panel": "output.hg_out"})
+        elif not self.append:
             p = self.window.new_file()
             p.run_command('append', {'characters': data})
             p.set_name("Mercurial - Output")
