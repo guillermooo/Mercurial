@@ -79,7 +79,8 @@ class CmdServerClient(object):
         assert ascii_txt, "Expected hello message from server."
 
         # Parse hello message.
-        capabilities, encoding = ascii_txt.split('\n')
+        # newer hg versions send their process id (pid: ...) as extra info
+        capabilities, encoding, *extra = ascii_txt.split('\n')
         self.encoding = encoding.split(':')[1].strip().lower()
         self.capabilities = capabilities.split(':')[1].strip().split()
 
