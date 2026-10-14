@@ -70,7 +70,7 @@ class HgServers(object):
         v = sublime.active_window().active_view()
         repo_root = find_repo_root(current_path or v.file_name())
         if not repo_root:
-            raise NoRepositoryFound()
+            raise NoRepositoryFoundError()
         if not repo_root in self.__dict__:
             server = self._start_server(repo_root)
             self.__dict__[repo_root] = server
